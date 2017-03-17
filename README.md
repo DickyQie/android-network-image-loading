@@ -1,7 +1,6 @@
 # Android之Fresco（facebook的强大Android图片加载的框架） 
- <div class="blog-abstract">
-                    摘要: Fresco是Facebook最新推出的一款用于Android应用中展示图片的强大图片库，可以从网络、本地存储和本地资源中加载图片。其中的Drawees可以显示占位符，直到图片加载完成。而当图片从屏幕上消失时，会自动释放内存。
-                </div>
+摘要: Fresco是Facebook最新推出的一款用于Android应用中展示图片的强大图片库，可以从网络、本地存储和本地资源中加载图片。其中的Drawees可以显示占位符，直到图片加载完成。而当图片从屏幕上消失时，会自动释放内存。
+
  <p>Fresco是Facebook开源Android平台上一个强大的图片加载库，也是迄今为止Android平台上最强大的图片加载库。</p> 
 <p>Fresco 是一个强大的图片加载组件。使用它之后，你不需要再去关心图片的加载和显示这些繁琐的事情！ 支持 Android 2.3 及以后的版本。</p> 
 <p>Fresco源码：https://github.com/facebook/fresco</p> 
@@ -13,7 +12,7 @@
 // 支持 GIF 动图，需要添加
    compile 'com.facebook.fresco:animated-gif:0.12.0'</code></pre> 
 <p>运行效果图：（注：此案例只完成了图中相应功能，Fresco更多功能去官方查看，讲解详细）</p> 
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　　<img alt="" src="http://images2015.cnblogs.com/blog/1041439/201703/1041439-20170317165346823-1762261669.gif"></p> 
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　　<img alt="" src="https://static.oschina.net/uploads/img/201703/17174622_W3TK.gif"></p> 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> 
 <span id="OSC_h2_1"></span>
 <h2>特性</h2> 
@@ -121,4 +120,3 @@
  hierarchy.setRoundingParams(roundingParams);
  sdv.setHierarchy(hierarchy);</code></pre> 
 <p>&nbsp;</p> 
-<p>&nbsp;</p>
