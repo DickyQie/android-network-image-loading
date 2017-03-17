@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.zq.frescodemo.MainActivity">
+
+
+    <!--  fresco:actualImageScaleType：实际加载的图片的伸缩样式
+        fresco:backgroundImage：底层图片资源
+        fresco:fadeDuration：进度条和占位符图片逐渐消失、加载的图片逐渐显示的时间间隔
+        fresco:failureImage：加载失败时显示的图片资源
+        fresco:failureImageScaleType：加载失败时加载的图片的伸缩样式
+        fresco:overlayImage：在显示的图片表层覆盖一张图片的图片资源
+        fresco:placeholderImage：占位符图片资源
+        fresco:placeholderImageScaleType：占位符图片的伸缩样式
+        fresco:progressBarAutoRotateInterval：进度条图片转动周期
+        fresco:progressBarImage：进度条图片资源
+        fresco:progressBarImageScaleType：进度条图片的伸缩样式
+        fresco:retryImage：提示重新加载的图片资源
+        fresco:retryImageScaleType：提示重新加载的图片的伸缩样式
+        fresco:roundAsCircle：将图片剪切成圆形
+        fresco:viewAspectRatio：图片宽高比-->
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/id_main_sdv_sdv"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        fresco:actualImageScaleType="focusCrop"
+        fresco:fadeDuration="3000"
+        fresco:failureImage="@mipmap/ic_launcher"
+        fresco:failureImageScaleType="centerInside"
+        fresco:placeholderImage="@mipmap/ic_launcher"
+        fresco:placeholderImageScaleType="fitCenter"
+        fresco:progressBarAutoRotateInterval="1000"
+        fresco:progressBarImage="@drawable/aa"
+        fresco:progressBarImageScaleType="centerInside"
+        fresco:retryImage="@mipmap/ic_launcher"
+        fresco:retryImageScaleType="centerCrop"
+        fresco:roundAsCircle="false"
+        fresco:viewAspectRatio="1.6" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/id_main_sdv_sdv2"
+            android:layout_width="200dp"
+            android:layout_height="110dp"
+            fresco:actualImageScaleType="focusCrop"
+            fresco:fadeDuration="3000"
+            fresco:failureImage="@mipmap/ic_launcher"
+            fresco:failureImageScaleType="centerInside"
+            fresco:placeholderImage="@mipmap/ic_launcher"
+            fresco:placeholderImageScaleType="fitCenter"
+            fresco:progressBarAutoRotateInterval="1000"
+            fresco:progressBarImage="@drawable/aa"
+            fresco:progressBarImageScaleType="centerInside"
+            fresco:retryImage="@mipmap/ic_launcher"
+            fresco:retryImageScaleType="centerCrop"
+            fresco:roundAsCircle="true"
+            fresco:roundedCornerRadius="10dp"
+            fresco:viewAspectRatio="2.1" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/user_avator"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_centerVertical="true"
+            fresco:actualImageScaleType="focusCrop"
+            fresco:roundAsCircle="true"
+            fresco:roundedCornerRadius="180dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/user_avator2"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            fresco:actualImageScaleType="focusCrop"
+            fresco:roundAsCircle="false"
+            fresco:roundBottomLeft="false"
+            fresco:roundBottomRight="false"
+            fresco:roundWithOverlayColor="#333333"
+            fresco:roundedCornerRadius="5dp"
+            fresco:roundingBorderColor="#222222"
+            fresco:roundingBorderWidth="1dp" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/my_image_view"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="50dp"
+            fresco:placeholderImage="@mipmap/ic_launcher" />
+    </LinearLayout>
+
+
+</LinearLayout>
