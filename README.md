@@ -1,4 +1,4 @@
-# Android之Fresco（facebook的强大Android图片加载的框架） 
+#### Android之Fresco（facebook的强大Android图片加载的框架） 
 摘要: Fresco是Facebook最新推出的一款用于Android应用中展示图片的强大图片库，可以从网络、本地存储和本地资源中加载图片。其中的Drawees可以显示占位符，直到图片加载完成。而当图片从屏幕上消失时，会自动释放内存。
 
  <p>Fresco是Facebook开源Android平台上一个强大的图片加载库，也是迄今为止Android平台上最强大的图片加载库。</p> 
@@ -45,78 +45,4 @@
 <p>Android 本身的图片库不支持此格式，但是Fresco支持。使用时，和往常一样，仅仅需要提供一个图片的URI即可，剩下的事情，Fresco会处理</p> 
 <p>5：动图加载</p> 
 <p>加载Gif图和WebP动图在任何一个Android开发者眼里看来都是一件非常头疼的事情。每一帧都是一张很大的Bitmap，每一个动画都有很多帧。Fresco让你没有这些烦恼，它处理好每一帧并管理好你的内存。</p> 
-<p>&nbsp;</p> 
-<p>代码：（属性可根据需要设置&nbsp; 注：<span style="color:#800000">android:layout_height="200dp" 的属性值不能为：wrap_content</span>）</p> 
-<pre><code class="language-html"> &lt;!--  fresco:actualImageScaleType：实际加载的图片的伸缩样式
-        fresco:backgroundImage：底层图片资源
-        fresco:fadeDuration：进度条和占位符图片逐渐消失、加载的图片逐渐显示的时间间隔
-        fresco:failureImage：加载失败时显示的图片资源
-        fresco:failureImageScaleType：加载失败时加载的图片的伸缩样式
-        fresco:overlayImage：在显示的图片表层覆盖一张图片的图片资源
-        fresco:placeholderImage：占位符图片资源
-        fresco:placeholderImageScaleType：占位符图片的伸缩样式
-        fresco:progressBarAutoRotateInterval：进度条图片转动周期
-        fresco:progressBarImage：进度条图片资源
-        fresco:progressBarImageScaleType：进度条图片的伸缩样式
-        fresco:retryImage：提示重新加载的图片资源
-        fresco:retryImageScaleType：提示重新加载的图片的伸缩样式
-        fresco:roundAsCircle：将图片剪切成圆形
-        fresco:viewAspectRatio：图片宽高比--&gt;
-
-    &lt;com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/id_main_sdv_sdv"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        fresco:actualImageScaleType="focusCrop"
-        fresco:fadeDuration="3000"
-        fresco:failureImage="@mipmap/ic_launcher"
-        fresco:failureImageScaleType="centerInside"
-        fresco:placeholderImage="@mipmap/ic_launcher"
-        fresco:placeholderImageScaleType="fitCenter"
-        fresco:progressBarAutoRotateInterval="1000"
-        fresco:progressBarImage="@drawable/aa"
-        fresco:progressBarImageScaleType="centerInside"
-        fresco:retryImage="@mipmap/ic_launcher"
-        fresco:retryImageScaleType="centerCrop"
-        fresco:roundAsCircle="false"
-        fresco:viewAspectRatio="1.6" /&gt;</code></pre> 
-<p>加载方式1：</p> 
-<pre><code class="language-java">  SimpleDraweeView sdv = (SimpleDraweeView) findViewById(R.id.id_main_sdv_sdv);
-  Uri uri = Uri.parse("http://image5.tuku.cn/pic/wallpaper/fengjing/menghuandaziranmeijingbizhi/009.jpg");
-                sdv.setImageURI(uri);</code></pre> 
-<p>加载方式2：</p> 
-<pre><code class="language-java"> SimpleDraweeView sdv2 = (SimpleDraweeView) findViewById(R.id.id_main_sdv_sdv2);
- sdv2.setImageURI("http://img.my.csdn.net/uploads/201407/26/1406383243_5120.jpg");</code></pre> 
-<p>加载方式3：</p> 
-<pre><code class="language-java"> simpleDraweeView1 = (SimpleDraweeView) findViewById(R.id.user_avator);
- simpleDraweeView1.setController(Fresco.newDraweeControllerBuilder()
-                 .setImageRequest(
-                  ImageRequestBuilder.newBuilderWithSource(
-                  Uri.parse("http://avatar.csdn.net/8/6/0/1_dickyqie.jpg"))
-                  .setProgressiveRenderingEnabled(true)
-                  .build())
-                 .setOldController(simpleDraweeView1.getController())
-                 .build());</code></pre> 
-<p>加载方式<span style="color:#B22222">gif图片</span>：</p> 
-<pre><code class="language-java"> Uri uri = Uri.parse("http://ww1.sinaimg.cn/mw600/6345d84ejw1dvxp9dioykg.gif");
-        simpleDraweeView2 = (SimpleDraweeView) findViewById(R.id.user_avator2);
-        DraweeController draweeController1 = Fresco.newDraweeControllerBuilder().setUri(uri).setAutoPlayAnimations(true).build();
-        simpleDraweeView2.setController(draweeController1);
-        simpleDraweeView2.setOnTouchListener(this);</code></pre> 
-<p>代码设置属性：</p> 
-<pre><code class="language-java">  // 代码设置SimpleDraweeView的属性（会覆盖XML设置的所有属性，即在XML中有在这里没有的属性都会失效）
-        // 注意：一个GenericDraweeHierarchy是不能被多个SimpleDraweeView共用的
- SimpleDraweeView sdv = (SimpleDraweeView) findViewById(R.id.id_main_sdv_sdv);        
- GenericDraweeHierarchy hierarchy = new GenericDraweeHierarchyBuilder(getResources())
-                .setFadeDuration(3000)
-                .setPlaceholderImage(R.mipmap.ic_launcher)
-                .setPlaceholderImageScaleType(ScalingUtils.ScaleType.FIT_XY)
-                .setProgressBarImage(new ProgressBarDrawable()) // 显示进度条（Fresco自带的进度条）
-                .build();
-        // 设置图片圆角
- RoundingParams roundingParams = new RoundingParams();
- roundingParams.setRoundAsCircle(false); // 不将图片剪切成圆形
- roundingParams.setCornersRadius(200);
- hierarchy.setRoundingParams(roundingParams);
- sdv.setHierarchy(hierarchy);</code></pre> 
 <p>&nbsp;</p> 
