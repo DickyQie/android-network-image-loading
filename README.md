@@ -6,7 +6,6 @@
 <p>Fresco源码：https://github.com/facebook/fresco</p> 
 <p>Fresco官方文档（中文）：https://www.fresco-cn.org/</p> 
 <p>Fresco源码在线查看：http://frescolib.org/javadoc/reference/packages.html</p> 
-<p>目前最新版本是： <a href="http://frescolib.org/javadoc/reference/packages.html" rel="nofollow">Fresco 1.1.0</a></p> 
 <p>gradle引入（当然你也可以引入 高版本）</p> 
 <pre><code class="language-java">   compile 'com.facebook.fresco:fresco:0.12.0'
 // 支持 GIF 动图，需要添加
@@ -15,7 +14,7 @@
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　　<img alt="" src="https://static.oschina.net/uploads/img/201703/17174622_W3TK.gif"></p> 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> 
 <span id="OSC_h2_1"></span>
-<h2>特性</h2> 
+<h5>特性</h5> 
 <p>1：内存管理</p> 
 <p>解压后的图片，即Android中的Bitmap，占用大量的内存。大的内存占用势必引发更加频繁的GC。在5.0以下，GC将会显著地引发界面卡顿。</p> 
 <p>在5.0以下系统，Fresco将图片放到一个特别的内存区域。当然，在图片不显示的时候，占用的内存会自动被释放。这会使得APP更加流畅，减少因图片内存占用而引发的OOM。</p> 
